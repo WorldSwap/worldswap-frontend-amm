@@ -1,5 +1,5 @@
 {
-  "name": "goose-frontend-amm",
+  "name": "worldswap-frontend-amm",
   "description": "AMM Interface",
   "homepage": ".",
   "private": true,
@@ -7,7 +7,7 @@
     "@crowdin/crowdin-api-client": "^1.8.16",
     "@ethersproject/experimental": "^5.0.1",
     "@pancakeswap-libs/sdk": "1.0.1",
-    "@pancakeswap-libs/uikit": "goosedefi/goose-uikit",
+    "@pancakeswap-libs/uikit": "WorldSwap/worldswap-uikit#dev",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",
     "@reach/portal": "^0.10.3",
@@ -39,6 +39,7 @@
     "cids": "^1.0.0",
     "copy-to-clipboard": "^3.2.0",
     "ethers": "^5.0.7",
+    "gh-pages": "^3.1.0",
     "i18next": "^15.0.9",
     "i18next-browser-languagedetector": "^3.0.1",
     "i18next-xhr-backend": "^2.0.1",
@@ -88,7 +89,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
-    "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'"
+    "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [

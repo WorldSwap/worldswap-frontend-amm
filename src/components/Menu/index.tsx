@@ -11,13 +11,12 @@ import links from './config'
 const Menu: React.FC = props => {
   const { account, activate, deactivate } = useWeb3React()
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
-  const { isDark, toggleTheme } = useTheme()
   const cakePriceUsd = useGetPriceData()
 
   return (
     <UikitMenu
       links={links}
-      priceLink="https://www.coingecko.com/en/coins/goose-finance"
+      priceLink="#"
       account={account as string}
       login={(connectorId: ConnectorId) => {
         if (connectorId === 'walletconnect') {
@@ -31,8 +30,8 @@ const Menu: React.FC = props => {
         return activate(injected)
       }}
       logout={deactivate}
-      isDark={isDark}
-      toggleTheme={toggleTheme}
+      isDark
+      toggleTheme={() => undefined}
       currentLang={selectedLanguage?.code || ''}
       langs={allLanguages}
       setLang={setSelectedLanguage}

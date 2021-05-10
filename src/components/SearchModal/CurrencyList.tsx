@@ -171,7 +171,19 @@ export default function CurrencyList({
   fixedListRef?: MutableRefObject<FixedSizeList | undefined>
   showETH: boolean
 }) {
-  const itemData = useMemo(() => (showETH ? [Currency.ETHER, ...currencies] : [...currencies]), [currencies, showETH])
+  const sortedList = currencies.sort((a, b) => {
+    if (a?.symbol?.toUpperCase() === 'DUB') {
+      return -1
+    }
+    if (b?.symbol?.toUpperCase() === 'DUB') {
+      return 1
+    }
+    if (a?.symbol && b?.symbol) {
+      return a.symbol > b.symbol ? 1 : -1
+    }
+    return 0
+  })
+  const itemData = useMemo(() => (showETH ? [Currency.ETHER, ...sortedList] : [...sortedList]), [sortedList, showETH])
 
   const Row = useCallback(
     ({ data, index, style }) => {
