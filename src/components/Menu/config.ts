@@ -13,13 +13,13 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: '/swap'
+        href: 'https://exchange.worldswap.finance/',
       },
       {
         label: 'Liquidity',
-        href: '/pool'
-      }
-    ]
+        href: 'https://exchange.worldswap.finance/#/pool',
+      },
+    ],
   },
   {
     label: 'Farms',
@@ -32,30 +32,16 @@ const config: MenuEntry[] = [
     href: 'https://dublin.worldswap.finance/#/pools'
   },
   {
-    label: 'Info',
-    icon: 'InfoIcon',
-    items: [
-      {
-        label: 'PancakeSwap',
-        href: 'https://pancakeswap.info/token/0xF952Fc3ca7325Cc27D15885d37117676d25BfdA6',
-      },
-    ]
-  },
-  {
     label: 'More',
     icon: 'MoreIcon',
     items: [
       {
-        label: "Github",
-        href: "https://github.com/WorldSwap",
+        label: 'Github',
+        href: 'https://github.com/WorldSwap',
       },
       {
-        label: "Docs",
-        href: "https://goosedefi.gitbook.io/goose-finance/",
-      },
-      {
-        label: "Blog",
-        href: "https://goosefinance.medium.com/",
+        label: 'Docs',
+        href: 'https://docs.worldswap.finance',
       },
     ],
   },
