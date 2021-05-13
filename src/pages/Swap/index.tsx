@@ -19,7 +19,7 @@ import TokenWarningModal from 'components/TokenWarningModal'
 import SyrupWarningModal from 'components/SyrupWarningModal'
 import ProgressSteps from 'components/ProgressSteps'
 
-import { BETTER_TRADE_LINK_THRESHOLD, INITIAL_ALLOWED_SLIPPAGE } from 'constants/index'
+import { BETTER_TRADE_LINK_THRESHOLD, DUB_TOKEN, INITIAL_ALLOWED_SLIPPAGE } from 'constants/index'
 import { isTradeBetter } from 'data/V1'
 import { useActiveWeb3React } from 'hooks'
 import { useCurrency } from 'hooks/Tokens'
@@ -56,6 +56,7 @@ const Swap = () => {
     () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c instanceof Token) ?? [],
     [loadedInputCurrency, loadedOutputCurrency]
   )
+  const unsafeTokens = urlLoadedTokens.filter(token => token.address !== DUB_TOKEN)
   const handleConfirmTokenWarning = useCallback(() => {
     setDismissTokenWarning(true)
   }, [])
@@ -284,8 +285,8 @@ const Swap = () => {
   return (
     <>
       <TokenWarningModal
-        isOpen={urlLoadedTokens.length > 0 && !dismissTokenWarning}
-        tokens={urlLoadedTokens}
+        isOpen={unsafeTokens.length > 0 && !dismissTokenWarning}
+        tokens={unsafeTokens}
         onConfirm={handleConfirmTokenWarning}
       />
       <SyrupWarningModal

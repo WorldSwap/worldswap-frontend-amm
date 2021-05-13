@@ -6,6 +6,8 @@ import { injected, bsc } from '../connectors'
 // TODO
 export const ROUTER_ADDRESS = '0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F'
 
+export const DUB_TOKEN = '0xc052568aF1B80157D0640afB0Df82712A98Aa931'
+
 // a list of tokens by chain
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
